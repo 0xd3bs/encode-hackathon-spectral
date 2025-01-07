@@ -49,18 +49,30 @@ uv pip install -r requirements.txt
 
 ## Project Overview
 
-This project is designed to help users identify market trends and make informed trading decisions using the following libraries and APIs:
+This project is designed to help users who follow a moving average crossover strategy to identify trends. Understanding the complexity of the market in price formation, an agent with the personality of a trader experienced in trend detection is proposed, which based on its expertise in the analysis of technical indicators, complements the user's strategy with a comprehensive analysis of indicators, in such a way that it advises the trader to make a data-driven decision, when establishing or not a purchase/sale order for a certain cryptocurrency. This agent supports users to identify market trends and make informed trading decisions using the following libraries and APIs:
 - Data wrangling and indicator generation with `pandas`, `numpy`, `ta`
 - Trading API integration with Binance
 - Language model API integration with OpenAI's gpt-4o-mini
 
 ### Key Functions
 
-- **Data download**: Retrieves historical market data.
-- **Calculation of indicators**: Computes various technical indicators.
-- **Signal generation**: Identifies buy/sell signals based on indicators.
-- **Operations executor**: Executes trades on the Binance exchange.
-- **Log function**: Records trading activities.
-- **Agent executor**: Runs the trading agent based on predefined schedules.
+- **get_data(ticker,period)**: This function is used to download the historical series of the asset on which the user wants LLM advice. The data is obtained from the binance testnet api. The data obtained is:
+ > - Price: Open, High, Low and Close.
+ > - Volume: VolumeCurr (volume of cryptocurrency objective), VolumeUSD (volume of USDT),
+ > - Trades: Trades of the cryptocurrency by unit time.
+- **get_indicators(df)**: Function for calculating technical indicators based on the prices of the cryptocurrency selected by the user:
+ > - var_pct: Percentage change in closing price.
+ > - SMA: 20 and 50
+ > - MA: 20 and 100 
+ > - RSI
+ > - MACD and MACD signal
+ > - log return: Logarithmic returns of closing price.
+ > - pup_6std: Price adjusted upwards using 6 standard deviations.
+ > - pdown_6std: Price adjusted downwards using 6 standard deviations.
+ > - std_dev: Moving standard deviation of closing price over a 20-period window.
+ > - upper and lower band: Bands based on the 20-period simple moving average (SMA) and 6 times the standard deviation.
+- **get_signal(df)**: Function to identify buy/sell signals of the asset through a moving average crossover strategy (this is the strategy that the user uses, by default).
+- **get_chat(system_prompt,user_message)**: LLM query function, based on the system prompt and user prompt structure.
+- **run_agent(ticker,period)**: Function to run the agent, on user-defined cryptocurrency (ticker) and at user-defined periodicity (1m/3m/5m/15m/30m/1h/2h/4h).
 
 ---
