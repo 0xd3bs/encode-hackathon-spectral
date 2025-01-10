@@ -28,7 +28,7 @@ To run this project locally, you'll need to set up the required environment vari
 
 ## Setup
 
-This starter kit is written in Python, you are free to use any language you want.
+This project is written in Python, you are free to use any language you want.
 We use OpenAI's GPT-4o model for this example, but you are free to use any model you want.
 If you follow the starter kit, you will need an OpenAI API key. 
 
@@ -74,5 +74,9 @@ This project is designed to help users who follow a moving average crossover str
 - **get_signal(df)**: Function to identify buy/sell signals of the asset through a moving average crossover strategy (this is the strategy that the user uses, by default).
 - **get_chat(system_prompt,user_message)**: LLM query function, based on the system prompt and user prompt structure.
 - **run_agent(ticker,period)**: Function to run the agent, on user-defined cryptocurrency (ticker) and at user-defined periodicity (1m/3m/5m/15m/30m/1h/2h/4h).
+
+### Disclaimer
+
+This repository was created as part of a submission for the Future of Blockchain University Encode Club Hackathon and Spectral's Bounty 2024. The code and information provided are intended for educational and demonstration purposes only and should not be considered financial advice (NFA). Any use of this project is at your own risk. We strongly recommend consulting a qualified financial advisor before making any investment decisions
 
 ---
