@@ -2,7 +2,7 @@
 
 ---
 
-# Encode Hackathon Spectral
+# IndicatorSense
 
 ## Environment Setup
 
@@ -47,7 +47,7 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 
-## Project Overview
+## IndicatorSense Overview
 
 This project is designed to help users who follow a moving average crossover strategy to identify trends. Understanding the complexity of the market in price formation, an agent with the personality of a trader experienced in trend detection is proposed, which based on its expertise in the analysis of technical indicators, complements the user's strategy with a comprehensive analysis of indicators, in such a way that it advises the trader to make a data-driven decision, when establishing or not a purchase/sale order for a certain cryptocurrency. This agent supports users to identify market trends and make informed trading decisions using the following libraries and APIs:
 - Data wrangling and indicator generation with `pandas`, `numpy`, `ta`
